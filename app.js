@@ -59,6 +59,12 @@ app.post('/cancel', function(req,res, err){
 	return 
 });
 
+app.post('/test', function(req,res, err){
+	return res.json({
+		result: Utils.send(req.query.string)
+	});
+});
+
 app.listen(1234, function(){
 	console.log('Server listening!');
 });

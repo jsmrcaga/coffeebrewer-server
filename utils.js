@@ -1,5 +1,5 @@
 var utils = {};
-var exec = require('child_process').exec;
+var exec = require('child_process').execSync;
 utils.init = function(){
 	var o = exec('stty -F /dev/ttyUSB0 9600 -parity cs8 -cstopb');
 	console.log('DONE INITIALIZING...', o);
@@ -18,4 +18,6 @@ function send(string){
 	console.log('BREWED: ', o);
 	return o;
 }
+
+Utils.send = send;
 module.exports = utils;
