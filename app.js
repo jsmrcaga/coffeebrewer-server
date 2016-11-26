@@ -56,7 +56,7 @@ app.post('/brew', function(req, res, err){
 
 app.post('/cancel', function(req,res, err){
 	Utils.cancel();
-	return 
+	return res.json({success:true});
 });
 
 app.post('/test', function(req,res, err){

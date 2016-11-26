@@ -14,10 +14,10 @@ utils.cancel = function(){
 };
 
 function send(string){
-	var o = exec(`echo -n ${string} > /dev/ttyUSB0'`);
+	var o = exec(`echo -n ${string} > /dev/ttyUSB0`);
 	console.log('BREWED: ', o);
 	return o;
 }
 
-Utils.send = send;
+utils.send = send;
 module.exports = utils;
