@@ -1,8 +1,8 @@
 var utils = {};
-var spawn = require('child_process').spawnSync;
+var exec = require('child_process').exec;
 utils.init = function(){
-	spawn('stty', ['-F', '/dev/ttyUSB0', 9600, '-parity', 'cs8', '-cstopb']);
-	console.log('DONE INITIALIZING...');
+	var o = exec('stty -F /dev/ttyUSB0 9600 -parity cs8 -cstopb');
+	console.log('DONE INITIALIZING...', o);
 };
 
 utils.brew = function(){
@@ -14,13 +14,8 @@ utils.cancel = function(){
 };
 
 function send(string){
-	var o = spawn('echo', ['-n',  string,  '> /dev/ttyUSB0']).output;
-	console.log('BREWED: ', o.map(e=>{
-		if(e instanceof Buffer){
-			return e.toString('utf8');
-		}
-		return e;
-	}));
+	var o = exec(`echo -n ${string} > /dev/ttyUSB0'`);
+	console.log('BREWED: ', o);
 	return o;
 }
 module.exports = utils;
