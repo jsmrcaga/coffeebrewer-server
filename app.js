@@ -46,11 +46,14 @@ app.post('/brew', function(req, res, err){
 		console.log('BREWING COFFEE');
 		var o = Utils.brew();
 		if(time < 2000){
-			return res.status(200).json({success:true, output: o});		
+			if(o === null){
+				return res.status(500).json({success:false, output: o});
+			}
+			return res.status(200).json({success:true, output: o});
 		}
 	}, time);
 	if(time >= 2000){
-		return res.status(200).json({success:true, output: null});
+		return res.status(200).json({success:'unknown', output: null});
 	}
 });
 

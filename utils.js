@@ -14,9 +14,13 @@ utils.cancel = function(){
 };
 
 function send(string){
-	var o = exec(`echo -n ${string} > /dev/ttyUSB0`);
-	console.log('BREWED: ', o);
-	return o;
+	try {
+		var o = exec(`echo -n ${string} > /dev/ttyUSB0`);
+		console.log('BREWED: ', o);
+		return o;
+	} catch(e) {
+		return null;
+	}
 }
 
 utils.send = send;
