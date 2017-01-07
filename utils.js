@@ -1,7 +1,10 @@
 var utils = {};
 var exec = require('child_process').execSync;
+
+utils.defaultPort = 'ttyUSB0';
+
 utils.init = function(){
-	var o = exec('stty -F /dev/ttyUSB0 9600 -parity cs8 -cstopb');
+	var o = exec(`stty -F /dev/${utils.defaultPort} 9600 -parity cs8 -cstopb`);
 	console.log('DONE INITIALIZING...', o);
 };
 
@@ -15,7 +18,7 @@ utils.cancel = function(){
 
 function send(string){
 	try {
-		var o = exec(`echo -n ${string} > /dev/ttyUSB0`);
+		var o = exec(`echo -n ${string} > /dev/${utils.defaultPort}`);
 		console.log('BREWED: ', o);
 		return o;
 	} catch(e) {

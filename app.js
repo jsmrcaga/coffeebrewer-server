@@ -32,8 +32,12 @@ app.get('/', function (req, res, err){
 	return res.status(418).redirect('/')
 });
 
-app.post('/profile', function(req, res, err){
-	
+app.post('/init', function(req, res, err){
+	if(req.body.port){
+		utils.defaultPort = req.port;
+	}
+	Utils.init();
+	return res.json({success:true});
 });
 
 app.post('/brew', function(req, res, err){
