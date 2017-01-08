@@ -1,0 +1,30 @@
+<head>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/516e342ab8.js"></script>
+  <script src="/js/moment-with-locales.js"></script>
+  <script src="/js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="img/icon.ico" />
+  <title>My Little Coffee</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="timeSelection">
+      <div id="hours" onclick="showSelection('hours')"></div>:<div id="minutes" onclick="showSelection('minutes')"></div><br/>
+    </div>
+    <div id="informationMessage"></div>
+    <button id="launch" onclick="launchCoffee()">Launch coffee</button>
+    <button id="launch" onclick="cancelCoffee()">Cancel coffee</button><br/>
+    <img id="coffee" src="/img/coffee-small.png" /><br/>
+    <div id="selectionContainer">
+      <div id="hoursSelection"></div>
+      <div id="minutesSelection"></div>
+    </div>
+    <span id="title">My Little Coffee</span>
+  </div>
+</body>

@@ -29,12 +29,12 @@ app.use('/', function(req, res, next){
 });
 
 app.get('/', function (req, res, err){
-	return res.status(418).redirect('/')
+	return res.render('index');
 });
 
 app.post('/init', function(req, res, err){
 	if(req.body.port){
-		utils.defaultPort = req.port;
+		Utils.defaultPort = req.body.port;
 	}
 	Utils.init();
 	return res.json({success:true});
@@ -73,5 +73,5 @@ app.post('/test', function(req,res, err){
 });
 
 app.listen(1234, function(){
-	console.log('Server listening!');
+	console.log('Server listening 1234!');
 });
